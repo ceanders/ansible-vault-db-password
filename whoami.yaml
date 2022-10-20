@@ -1,0 +1,9 @@
+- name: Run Whoami
+  hosts: all
+  tasks:
+    - name: Print the actual user
+      command: whoami
+      register: command_output
+
+    - debug:
+        var: command_output.stdout_lines
