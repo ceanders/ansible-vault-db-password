@@ -7,3 +7,6 @@
 
     - debug:
         var: command_output.stdout_lines
+        
+    - name: Echo the DB password from the vault
+      command: echo {{ dbpassword }}
