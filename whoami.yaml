@@ -19,3 +19,7 @@
         
     - name: Echo the DB password from the vault
       command: echo {{ dbpassword }}
+      register: command2_output
+      
+    - debug:
+        var: command2_output.stdout.lines
