@@ -9,7 +9,7 @@
           6562646364663265660a316261326263356132353738306561366663313763663431616131663133
           3366
           
-    dbpassword: {{ vault_dbpassword }}
+    dbpassword: "{{ vault_dbpassword }}"
           
   tasks:
     - name: Print the actual user
