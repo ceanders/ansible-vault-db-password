@@ -1,13 +1,15 @@
 - name: Run Whoami
   hosts: all
   vars:
-    dbpassword: !vault |
+    vault_dbpassword: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           34363639623866376536303434643237326361613537663834616366623931316636626631643530
           6663323637643731666235633764643732636537643265660a383439663265373432653066393633
           38343065356630343063626436383862646661326561366239376263356639653739656466623262
           6562646364663265660a316261326263356132353738306561366663313763663431616131663133
           3366
+          
+    dbpassword: {{ vault_dbpassword }}
           
   tasks:
     - name: Print the actual user
@@ -22,4 +24,4 @@
       register: command2_output
       
     - debug:
-        var: command2_output.stdout.lines
+        var: command2_output.stdout_lines
