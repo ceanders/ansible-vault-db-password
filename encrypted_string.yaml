@@ -12,14 +12,8 @@
     dbpassword: "{{ vault_dbpassword }}"
           
   tasks:
-    - name: Print the actual user
-      command: whoami
-      register: command_output
-
-    - debug:
-        var: command_output.stdout_lines
-        
-    - name: Echo the DB password from the vault
+  
+    - name: Echo the DB password from the encrypted string
       command: echo {{ dbpassword }}
       register: command2_output
       
