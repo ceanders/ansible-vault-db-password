@@ -1,4 +1,4 @@
-- name: Run Whoami
+- name: Read from an inline encrypted string and output to stdout and debug
   hosts: all
   vars:
     vault_dbpassword: !vault |

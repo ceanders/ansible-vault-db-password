@@ -1,0 +1,16 @@
+- name: Read from a vars file and output to stdout and debug
+  hosts: all
+  vars_files:
+    - vault/variables.yaml
+
+  vars:        
+    dbpassword: "{{ vault_dbpassword }}"
+          
+  tasks:
+  
+    - name: Echo the DB password from the encrypted string
+      command: echo {{ dbpassword }}
+      register: command2_output
+      
+    - debug:
+        var: command2_output.stdout_lines
